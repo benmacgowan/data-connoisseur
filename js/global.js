@@ -1,5 +1,5 @@
 $(function() {
-	var converter = $('form[role=main').connoisseur({
+	var converter = $('form[role=main]').connoisseur({
 		fieldWrapper: true
 	});
 	
