@@ -1,70 +1,98 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
-
-<html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Mr. Data Converter</title>
-  <meta name="author" content="Shan Carter">
-  <!-- Date: 2010-08-26 -->
-  <link rel="stylesheet" href="css/converter.css" type="text/css" media="screen" title="no title" charset="utf-8">
-
-  <script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
-  <script src="js/CSVParser.js" type="text/javascript" charset="utf-8"></script>
-  <script src="js/DataGridRenderer.js" type="text/javascript" charset="utf-8"></script>
-  <script src="js/converter.js" type="text/javascript" charset="utf-8"></script>
-  <script src="js/Controller.js" type="text/javascript" charset="utf-8"></script>
-
-</head>
-<body>
-  <div id='base'>
-    <div id='header'>
-      <div id="description">
-        <h1>Mr. Data Converter</h1>
-        <p>I will convert your Excel data into one of several web-friendly formats, including HTML, JSON and XML.</p>
-        <p>Fork me on <a href="http://github.com/shancarter/Mr-Data-Converter">github</a>.</p>
-      </div>
-      <div id='settings'>
-        <h3>Settings</h3>
-        <form id='settingsForm'>
-           <p>Delimiter:
-
-             <label><input class="settingsElement" type="radio" name="delimiter" id='delimiterAuto'   value="auto" checked/> Auto</label>
-             <label><input class="settingsElement" type="radio" name="delimiter" id='delimiterComma'  value="comma" /> Comma</label>
-             <label><input class="settingsElement" type="radio" name="delimiter" id='delimiterTab'    value="tab" /> Tab</label>
-            </p>
-          <p>Decimal Sign:
-
-             <label><input class="settingsElement" type="radio" name="decimal" id='decimalDot'   value="dot" checked/> Dot</label>
-             <label><input class="settingsElement" type="radio" name="decimal" id='decimalComma'  value="comma" /> Comma</label>
-            </p>
-          <p><label><input class="settingsElement" type="checkbox" name="" value="" id="headersProvidedCB" checked /> First row is the header</label></p>
-          <div class="settingsGroup">
-            <p>Transform: <label><input class="settingsElement" type="radio" name="headerModifications" value="downcase" id='headersDowncase' /> downcase</label>
-            <label><input class="settingsElement" type="radio" name="headerModifications" id='headersUpcase' value="upcase" /> upcase</label>
-            <label><input class="settingsElement" type="radio" name="headerModifications" id='headersNoTransform' value="none" checked /> none</label></p>
-          </div>
-
-          <p><label><input class="settingsElement" type="checkbox" name="some_name" value="" id="includeWhiteSpaceCB" checked /> Include white space in output</label></p>
-          <div class="settingsGroup">
-            <p>Indent with: <label><input class="settingsElement" type="radio" name="indentType" value="tabs" id='includeWhiteSpaceTabs'/> tabs</label> <label><input class="settingsElement" type="radio" name="indentType" value="spaces" id='includeWhiteSpaceSpaces' checked/> spaces</label></p>
-          </div>
-
-
-        </form>
-
-
-      </div>
-    </div>
-
-
-
-    <div id='converter' class=''>
-
-    </div>
-
-  </div>
-
-
-</body>
+<!DOCTYPE html>
+<!--[if IE 7 ]><html class="ie7" lang="en-GB"><![endif]-->
+<!--[if IE 8 ]><html class="ie8" lang="en-GB"><![endif]-->
+<!--[if IE 9 ]><html class="ie9" lang="en-GB"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en-GB"><!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<title>Connoisseur</title>
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="css/default.min.css" />
+		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script>window.jQuery || document.write('<script src="/UI/JavaScript/Libraries/jquery-1.10.2.min.js">\x3C/script>')</script>
+	</head>
+	<body>
+		<header role="banner">
+			<h1>Connoisseur</h1>
+			<p>Utilising the power of <a href="http://shancarter.github.io/mr-data-converter/">Mr. Data Converter</a> and <a href="http://handlebarsjs.com/">Handlebars</a>, this tool will take your Excel data and generate your final HTML. No more copying and pasting for hours on end.</p>
+			<p>A project by <a href="http://www.twitter.com/benmacgowan">@benmacgowan</a> &bull; Fork me on <a href="https://github.com/benmacgowan/data-connoisseur">GitHub</a></p>
+			<noscript>
+				<p class="error">This tool relies heavily on JavaScript. Please ensure you have this enabled.</p>
+			</noscript>
+			<small>Mustache designed by Juan Pablo Bravo from the <a href="http://thenounproject.com/">Noun Project</a></small>
+		</header>
+		<form role="main">
+			<fieldset>
+				<legend>Input CSV or tab-delimited data.</legend>
+				<p>Using Excel? Simply copy and paste. No data on hand? <button id="sample">Use our sample</button></p>
+				<div class="wrapper">
+					<button class="toggle-settings">Settings</button>
+					<textarea id="data"></textarea>
+				</div>
+				<div class="settings">
+					<dl>
+						<dt>Delimiter:</dt>
+						<dd>
+							<ul>
+								<li>
+									<input type="radio" name="delimiter" id="delimiter-auto" value="auto" checked />
+									<label for="delimiter-auto">Auto</label>
+								</li>
+								<li>
+									<input type="radio" name="delimiter" id="delimiter-comma" value="comma" />
+									<label for="delimiter-comma">Comma</label>
+								</li>
+								<li>
+									<input type="radio" name="delimiter" id="delimiter-tab" value="tab" />
+									<label for="delimiter-tab">Tab</label>
+								</li>
+							</ul>
+						</dd>
+						<dt class="block"><label for="headers-provided">First row is header</label></dt>
+						<dd>
+							<input type="checkbox" name="headers-provided" id="headers-provided" checked />
+						</dd>
+						<dt>Transform header:</dt>
+						<dd>
+							<ul>
+								<li>
+									<input type="radio" name="transform" id="transform-lowercase" value="downcase" checked />
+									<label for="transform-lowercase">Lowercase</label>
+								</li>
+								<li>
+									<input type="radio" name="transform" id="transform-uppercase" value="upcase" />
+									<label for="transform-uppercase">Uppercase</label>
+								</li>			
+								<li>
+									<input type="radio" name="transform" id="transform-none" value="none" />
+									<label for="transform-none">None</label>
+								</li>								
+							</ul>
+							<small>To reference fields in your HTML template, headers must be provided</small>
+						</dd>
+					</dl>
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>Build HTML template</legend>
+				<p>Visit the <a href="http://handlebarsjs.com/">handlebars</a> website for documentation. <code>rows</code> relates to each row in your data.</p>
+				<div class="wrapper">
+					<textarea id="template"></textarea>
+				</div>
+			</fieldset>
+			<input type="submit" value="Generate final HTML" />
+			<fieldset>
+				<legend>Result</legend>
+				<div class="wrapper">
+					<textarea id="result"></textarea>
+				</div>
+			</fieldset>
+		</form>
+	  <script src="js/libraries/csv-parser.js"></script>
+	  <script src="js/libraries/data-grid-renderer.js"></script>
+	  <script src="js/libraries/handlebars-v1.3.0.min.js"></script>
+	  <script src="js/jquery.connoisseur.min.js"></script>
+	  <script src="js/global.min.js"></script>
+	</body>
 </html>

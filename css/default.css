@@ -1,0 +1,348 @@
+@import url(http://fonts.googleapis.com/css?family=Gabriela);
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Colour Palette */
+/* Fonts */
+/* Spacing */
+/* Mix-ins */
+form fieldset:after {
+  clear: both;
+  content: '';
+  display: block;
+}
+html.ie7 form fieldset, form html.ie7 fieldset {
+  zoom: 1;
+}
+
+body {
+  color: #3e464a;
+  font: 14px/150% Arial, sans-serif;
+  padding: 0 20px 0 310px;
+}
+@media only screen and (max-width: 715px) {
+  body {
+    padding-left: 20px;
+  }
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, ol {
+  margin: 20px 0;
+}
+
+ul, ol {
+  margin-left: 20px;
+}
+
+h1, h2, h3 {
+  font-family: "Gabriela", serif;
+}
+
+a {
+  color: #3e464a;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+a:hover {
+  color: #101213;
+}
+
+form fieldset {
+  border: 0;
+  margin: 20px 0;
+  overflow: hidden;
+  position: relative;
+}
+form fieldset legend {
+  background: white;
+  color: #74838a;
+  font: 20px/30px "Gabriela", serif;
+  padding: 0 20px;
+  text-align: center;
+}
+form fieldset legend:after {
+  border-bottom: 1px solid #ebeff0;
+  border-top: 1px solid #ced8da;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 14px;
+  z-index: -1;
+}
+form fieldset legend + p {
+  text-align: center;
+}
+form fieldset .success,
+form fieldset .error,
+form fieldset .success {
+  margin-bottom: 0;
+}
+form fieldset div.wrapper {
+  background-color: #74838a;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #808e95), color-stop(100%, #66757c));
+  background-image: -webkit-linear-gradient(#808e95, #66757c);
+  background-image: -moz-linear-gradient(#808e95, #66757c);
+  background-image: -o-linear-gradient(#808e95, #66757c);
+  background-image: linear-gradient(#808e95, #66757c);
+  border: 1px solid #4a555a;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 1px 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 1px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.2) inset, 0 0 1px 0 rgba(0, 0, 0, 0.5);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  margin-top: 20px;
+  position: relative;
+  padding: 10px;
+  -webkit-transition: width 1s ease-in-out;
+  -moz-transition: width 1s ease-in-out;
+  -o-transition: width 1s ease-in-out;
+  transition: width 1s ease-in-out;
+  width: 100%;
+}
+form fieldset div.wrapper button.toggle-settings {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+form fieldset div.wrapper textarea {
+  border: 1px solid #546066;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.3);
+  -moz-box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.3);
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.3);
+  height: 320px;
+  display: block;
+  font: 14px/150% Arial, sans-serif;
+  resize: none;
+  padding: 20px;
+  width: 100%;
+}
+form fieldset div.settings {
+  float: right;
+  height: 320px;
+  -webkit-transition: width 1s ease-in-out;
+  -moz-transition: width 1s ease-in-out;
+  -o-transition: width 1s ease-in-out;
+  transition: width 1s ease-in-out;
+  margin-top: 30px;
+  overflow: hidden;
+  position: relative;
+  width: 0;
+}
+form fieldset div.settings dl {
+  font-size: 12px;
+  margin-left: 20px;
+  min-width: 140px;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+form fieldset div.settings dl dt {
+  font-weight: bold;
+}
+form fieldset div.settings dl dt.block {
+  display: inline-block;
+}
+form fieldset div.settings dl dt.block + dd {
+  display: inline-block;
+}
+form fieldset div.settings dl dd {
+  margin: 0 0 10px 10px;
+}
+form fieldset div.settings dl dd ul {
+  list-style: none;
+  margin: 0;
+}
+form fieldset div.settings dl dd ul li {
+  margin-bottom: 5px;
+}
+form fieldset div.settings dl dd ul li:last-child {
+  margin-bottom: 0;
+}
+form fieldset div.settings dl dd ul li input {
+  margin: 2px 5px 0 0;
+}
+form fieldset div.settings small {
+  display: inline-block;
+  margin-top: 10px;
+}
+form fieldset.settings-open div.wrapper {
+  width: 75%;
+}
+@media only screen and (max-width: 940px) {
+  form fieldset.settings-open div.wrapper {
+    width: 60%;
+  }
+}
+form fieldset.settings-open div.settings {
+  width: 25%;
+}
+@media only screen and (max-width: 940px) {
+  form fieldset.settings-open div.settings {
+    width: 40%;
+  }
+}
+form input[type=submit] {
+  background-color: #cd706d;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0.15)), color-stop(100%, rgba(255, 255, 255, 0)));
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  background-image: linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  border: 1px solid #8c4443;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+  color: white;
+  cursor: pointer;
+  display: block;
+  font: 14px "Gabriela", serif;
+  margin: 0 auto;
+  padding: 10px 20px;
+  text-align: center;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+form input[type=submit]:hover {
+  background-color: #d48380;
+  border-color: #9d4c4b;
+}
+
+button.toggle-settings {
+  background: url("../images/settings-icon.png") no-repeat;
+  border: 0;
+  cursor: pointer;
+  height: 22px;
+  text-indent: -9999em;
+  width: 22px;
+}
+button.toggle-settings:hover, button.toggle-settings.active {
+  background-position: 0 -22px;
+}
+
+button#sample {
+  background: none;
+  border: 0;
+  color: #3e464a;
+  cursor: pointer;
+  font: 14px/150% Arial, sans-serif;
+  text-decoration: underline;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+button#sample:hover {
+  color: #101213;
+}
+
+.error, .success {
+  background-color: #cd706d;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0.15)), color-stop(100%, rgba(255, 255, 255, 0)));
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  background-image: linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  border: 1px solid #8c4443;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+  color: white;
+  padding: 10px 20px;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5);
+}
+
+ul.error, ul.success {
+  list-style: none;
+  margin-left: 0;
+}
+
+.success {
+  background-color: #6dcd8e;
+  border-color: #408c5a;
+}
+
+header[role=banner] {
+  background: #ebeff0;
+  border: 1px solid #ced8da;
+  border-width: 0 1px 0 0;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  top: 0;
+  padding: 0 20px;
+  width: 250px;
+}
+@media only screen and (max-width: 715px) {
+  header[role=banner] {
+    border-width: 0 0 1px;
+    overflow: hidden;
+    margin: 0 -20px;
+    padding: 0 20px 20px;
+    position: static;
+    width: auto;
+  }
+}
+@media only screen and (max-width: 550px) {
+  header[role=banner] {
+    text-align: center;
+  }
+}
+header[role=banner] h1 {
+  background: url("../images/logo.png") no-repeat center top;
+  color: #9aacb5;
+  margin: 20px auto;
+  max-width: 180px;
+  padding-top: 143px;
+  text-align: center;
+}
+@media only screen and (max-width: 715px) and (min-width: 551px) {
+  header[role=banner] h1 {
+    float: left;
+    margin-right: 20px;
+  }
+}
+header[role=banner] a {
+  color: #9aacb5;
+}
+header[role=banner] a:hover {
+  color: #637a86;
+}
+header[role=banner] small {
+  display: inline-block;
+  font-size: 11px;
+  line-height: 120%;
+}

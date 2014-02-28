@@ -180,9 +180,8 @@ var CSVParser = {
     var out = "";
     if (this.errorLog.length > 0) {
       for (var i=0; i < this.errorLog.length; i++) {
-        out += ("!!"+this.errorLog[i] + "!!\n");
+        out += ("<li>"+this.errorLog[i] + "</li>");
       };
-      out += "\n"
     };
 
     return out;

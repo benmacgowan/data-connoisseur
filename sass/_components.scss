@@ -1,0 +1,193 @@
+form {
+	fieldset {
+		border:									0;
+		margin: 								$gridUnit*2 0;
+		overflow: 								hidden;
+		position: 								relative;
+		@extend									%clearfix;
+		legend {
+			background: 						$colourOne;
+			color:								$colourFive;
+			font:								20px/30px $gabriela;
+			padding: 							0 $gridUnit*2;
+			text-align: 						center;
+			&:after {
+				border-bottom:					1px solid $colourThree;
+				border-top:						1px solid darken($colourThree, 10%);
+				content:						'';
+				left: 							0;
+				position: 						absolute;
+				right: 							0;
+				top:							14px;
+				z-index: 						-1;
+			}
+			+ p {
+				text-align: 					center;
+			}
+		}
+		.success, 
+		.error {
+			margin-bottom: 						0;
+		}
+		div.wrapper {
+			background-color:					$colourFive;
+			@include							background-image(linear-gradient($colourEight, $colourNine));
+			border:								1px solid $colourSix;
+			@include							border-radius(3px);
+			@include							box-shadow(0 1px 0 0 transparentize($colourOne, .8) inset, 0 0 1px 0 transparentize($colourSeven, .5));
+			@include 							box-sizing(border-box);
+			float: 								left;
+			margin-top:							$gridUnit*2;
+			position: 							relative;
+			padding:							$gridUnit;
+			@include							transition(width 1s ease-in-out);
+			width: 								100%;
+			button.toggle-settings {
+				position: 						absolute;
+				right: 							20px;
+				top:							20px;
+			}
+			textarea {
+				border: 						1px solid $colourTen;
+				@include						border-radius(3px);
+				@include 						box-sizing(border-box);
+				@include						box-shadow(0 1px 0 0 transparentize($colourOne, .7));
+				height: 						320px;
+				display: 						block;
+				font:							14px/150% Arial, sans-serif;
+				resize: 						none;
+				padding:						$gridUnit*2;
+				width: 							100%;
+			}
+		}
+		div.settings {
+			float: 								right;
+			height: 							320px;
+			@include							transition(width 1s ease-in-out);
+			margin-top:							$gridUnit*3;
+			overflow: 							hidden;
+			position: 							relative;
+			width: 								0;
+			dl {
+				font-size: 						12px;
+				margin-left:					$gridUnit*2;
+				min-width: 						140px;
+				left: 							0;
+				position: 						absolute;
+				right: 							0;
+				dt {	
+					font-weight: 				bold;
+					&.block {
+						display: 				inline-block;
+						+ dd {
+							display: 			inline-block;
+						}
+					}
+				}
+				dd {
+					margin:						0 0 $gridUnit $gridUnit;
+					ul {
+						list-style: 			none;
+						margin: 				0;
+						li {
+							margin-bottom: 		$gridUnit/2;
+							&:last-child {
+								margin-bottom: 0;
+							}
+							input {
+								margin:			2px $gridUnit/2 0 0;
+							}
+						}
+					}
+				}
+			}
+			small {
+				display: 						inline-block;
+				margin-top:						$gridUnit;
+			}
+		}
+		&.settings-open {
+			div.wrapper {
+				width: 							75%;
+				@include respond-to(940px) {
+					width:						60%;
+				}
+			}
+			div.settings {
+				width: 							25%;
+				@include respond-to(940px) {
+					width:						40%;
+				}
+			}
+		}
+	}
+	input[type=submit] {
+		background-color: 						$colourEleven;
+		@include								background-image(linear-gradient(transparentize($colourOne, .85), transparentize($colourOne, 1)));
+		border: 								1px solid $colourTwelve;
+		@include								border-radius(4px);
+		@include								box-shadow(0 1px 2px transparentize($colourSeven, .7), 0 1px 0 transparentize($colourOne, .7) inset);
+		color:									$colourOne;
+		cursor: 								pointer;
+		display: 								block;
+		font:									14px $gabriela;
+		margin:									0 auto;
+		padding:								$gridUnit $gridUnit*2;
+		text-align: 							center;
+		text-shadow: 							0 -1px 1px transparentize($colourSeven, .5);
+		text-transform: 						uppercase;
+		@include								transition(all .25s ease-in-out);
+		&:hover {
+			background-color:					lighten($colourEleven, 5%);
+			border-color:						lighten($colourTwelve, 5%);
+		}
+	}
+}
+
+button.toggle-settings {
+	background: 								url('../images/settings-icon.png') no-repeat;
+	border: 									0;
+	cursor: 									pointer;
+	height: 									22px;
+	text-indent: 								-9999em;
+	width: 										22px;
+	&:hover, 
+	&.active {
+		background-position: 					0 -22px;
+	}
+}
+
+button#sample {
+	background: 								none;
+	border: 									0;
+	color:										$colourTwo;
+	cursor: 									pointer;
+	font:										14px/150% Arial, sans-serif;
+	text-decoration: 							underline;
+	@include									transition(all .25s ease-in-out);
+	&:hover {
+		color:									darken($colourTwo, 20%);
+	}
+}
+
+.error {
+	background-color: 							$colourEleven;
+	@include									background-image(linear-gradient(transparentize($colourOne, .85), transparentize($colourOne, 1)));
+	border: 									1px solid $colourTwelve;
+	@include									border-radius(4px);
+	@include									box-shadow(0 1px 2px transparentize($colourSeven, .7), 0 1px 0 transparentize($colourOne, .7) inset);
+	color:										$colourOne;
+	padding:									$gridUnit $gridUnit*2;
+	text-shadow: 								0 -1px 1px transparentize($colourSeven, .5);
+}
+
+ul.error {
+	list-style: 								none;
+	margin-left: 								0;	
+}
+
+.success {
+	@extend										.error;
+	background-color:							$colourThirteen;
+	border-color:								$colourFourteen;
+}
